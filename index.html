@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>StratAI - AI Strategy Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>StratAI</h1>
+    <p class="subtitle">AI Use Case Prioritization & Strategy Engine</p>
+
+    <!-- INPUT CARD -->
+    <div class="card">
+        <h2>Add AI Use Case</h2>
+
+        <div class="field">
+            <label>Use Case Name</label>
+            <input type="text" id="name">
+        </div>
+
+        <div class="grid">
+            <div class="field">
+                <label>Business Impact (1-5)</label>
+                <input type="number" id="impact" min="1" max="5">
+            </div>
+
+            <div class="field">
+                <label>Data Availability (1-5)</label>
+                <input type="number" id="data" min="1" max="5">
+            </div>
+
+            <div class="field">
+                <label>Implementation Complexity (1-5)</label>
+                <input type="number" id="complexity" min="1" max="5">
+            </div>
+
+            <div class="field">
+                <label>Risk Level (1-5)</label>
+                <input type="number" id="risk" min="1" max="5">
+            </div>
+
+            <div class="field">
+                <label>Strategic Alignment (1-5)</label>
+                <input type="number" id="alignment" min="1" max="5">
+            </div>
+            <h3>Adjust Scoring Weights</h3>
+
+<div class="weight-grid">
+
+    <div>
+        <label>Impact Weight: <span id="impactWeightValue">0.35</span></label>
+        <input type="range" id="impactWeight" min="0" max="1" step="0.05" value="0.35">
+    </div>
+
+    <div>
+        <label>Data Weight: <span id="dataWeightValue">0.25</span></label>
+        <input type="range" id="dataWeight" min="0" max="1" step="0.05" value="0.25">
+    </div>
+
+    <div>
+        <label>Alignment Weight: <span id="alignmentWeightValue">0.20</span></label>
+        <input type="range" id="alignmentWeight" min="0" max="1" step="0.05" value="0.20">
+    </div>
+
+    <div>
+        <label>Risk Weight: <span id="riskWeightValue">0.10</span></label>
+        <input type="range" id="riskWeight" min="0" max="1" step="0.05" value="0.10">
+    </div>
+
+    <div>
+        <label>Complexity Weight: <span id="complexityWeightValue">0.10</span></label>
+        <input type="range" id="complexityWeight" min="0" max="1" step="0.05" value="0.10">
+    </div>
+
+</div>
+
+
+            <div></div>
+        </div>
+
+        <button onclick="addUseCase()">Evaluate</button>
+    </div>
+
+    <!-- RESULTS CARD -->
+    <div class="card">
+        <h2>Priority Ranking</h2>
+        <div id="results"></div>
+
+        <h2>AI Adoption Roadmap</h2>
+        <div id="roadmap"></div>
+
+        <h2>Executive Summary</h2>
+        <div id="summary"></div>
+
+        <h2>Strategy Visualization</h2>
+
+<div class="chart-grid">
+    <div class="chart-card">
+        <canvas id="scoreChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <canvas id="priorityChart"></canvas>
+    </div>
+</div>
+
+
+        <button onclick="clearAll()">Clear All</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
